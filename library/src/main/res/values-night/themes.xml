@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style
+        name="Theme.Application"
+        parent="Theme.Material3.Dark.NoActionBar">
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariantDark</item>
+        <item name="colorOnPrimary">@color/colorOnPrimaryDark</item>
+
+        <item name="colorSecondary">@color/colorSecondaryDark</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariantDark</item>
+        <item name="colorOnSecondary">@color/colorOnSecondaryDark</item>
+
+        <item name="colorSurface">@color/colorSurfaceDark</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariantDark</item>
+        <item name="colorOnSurface">@color/colorOnSurfaceDark</item>
+
+        <item name="android:colorBackground">@color/colorBackgroundDark</item>
+        <item name="colorOnBackground">@color/colorOnBackgroundDark</item>
+
+        <item name="colorError">@color/error</item>
+        <item name="android:textColor">@color/colorOnSurfaceDark</item>
+        <item name="colorTertiary">#ff5ac0c7</item>
+
+    </style>
+
+    <color name="textColorHeader">@color/colorOnSurfaceDark</color>
+    <color name="backgroundColorHeader">@color/colorOnPrimaryDark</color>
+    <color name="textColorRow">@color/colorOnSurfaceDark</color>
+    <color name="backgroundColorRow">@color/colorSurfaceDark</color>
+
+</resources>

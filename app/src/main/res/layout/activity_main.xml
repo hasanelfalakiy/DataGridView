@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:text="!!! TEST !!!" />
+
+    <jkas.datagridview.DataGridView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:id="@+id/dataGridView"
+        app:columnCount="6"
+        app:rowCount="43"
+        app:showVerticalSeparator="false"
+        app:showHorizontalSeparator="true"
+        app:columnHeaderBackgroundColor="?colorOnPrimary"
+        app:columnHeaderTextColor="?colorOnSurface"
+        app:rowBackgroundColor="?colorSurface"
+        app:rowTextColor="?colorOnSurface"
+        app:columnHeaderHeight="43dp"
+        app:columnWidthSizeType="wrap_content"
+        app:rowHeight="20dp"
+        app:strokeSize="2dp"
+        app:strokeColor="?colorOnSurface" />
+
+</LinearLayout>

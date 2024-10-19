@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="DataGridView">
+
+        <attr
+            name="columnCount"
+            format="integer" />
+
+        <attr
+            name="rowCount"
+            format="integer" />
+
+        <attr
+            name="rowHeight"
+            format="dimension" />
+
+        <attr
+            name="columnHeaderHeight"
+            format="dimension" />
+
+        <attr
+            name="showVerticalSeparator"
+            format="boolean" />
+
+        <attr
+            name="showHorizontalSeparator"
+            format="boolean" />
+
+        <attr
+            name="strokeSize"
+            format="dimension" />
+
+        <attr
+            name="columnHeaderBackgroundColor"
+            format="color" />
+
+        <attr
+            name="columnHeaderTextColor"
+            format="color" />
+
+        <attr
+            name="rowBackgroundColor"
+            format="color" />
+
+        <attr
+            name="rowTextColor"
+            format="color" />
+
+        <attr
+            name="strokeColor"
+            format="color" />
+
+        <attr
+            name="hideHeader"
+            format="boolean" />
+
+        <attr
+            name="columnWidthSizeType"
+            format="enum">
+            <enum
+                name="wrap_content"
+                value="0" />
+            <enum
+                name="stretch"
+                value="1" />
+        </attr>
+
+    </declare-styleable>
+
+</resources>
