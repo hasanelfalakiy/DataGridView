@@ -118,26 +118,22 @@ public class DataGridView extends LinearLayout {
     }
 
     private void setAttrs() {
-        try {
-            setColumnCount(defaultSetting.columnCount);
-            setColumnHeaderHeight(defaultSetting.columnHeaderHeight);
-            setColumnHeaderBackgroundColor(defaultSetting.columnHeaderBackgroundColor);
-            setColumnHeaderTextColor(defaultSetting.columnHeaderTextColor);
-            hideHeader(defaultSetting.hideHeader);
-            showVerticalSeparator(defaultSetting.showVerticalSeparator);
-            showHorizontalSeparator(defaultSetting.showHorizontalSeparator);
-            setRowBackgroundColor(defaultSetting.rowBackgroundColor);
-            setRowCount(defaultSetting.rowCount);
-            setRowHeight(defaultSetting.rowHeight);
-            setRowTextColor(defaultSetting.rowTextColor);
-            setDiviserColor(defaultSetting.diviserColor);
-            setDiviserSize(defaultSetting.diviserSize);
-            setDiviserHeaderColor(defaultSetting.diviserHeaderColor);
-            setGridStrokeSize(defaultSetting.gridStrokeSize);
-            setGridStrokeColor(defaultSetting.gridStrokeColor);
-        } catch (Exception err) {
-            Utils.copyTextToClipBoard(getContext(), "error : " + err.getMessage());
-        }
+        setColumnCount(defaultSetting.columnCount);
+        setColumnHeaderHeight(defaultSetting.columnHeaderHeight);
+        setColumnHeaderBackgroundColor(defaultSetting.columnHeaderBackgroundColor);
+        setColumnHeaderTextColor(defaultSetting.columnHeaderTextColor);
+        hideHeader(defaultSetting.hideHeader);
+        showVerticalSeparator(defaultSetting.showVerticalSeparator);
+        showHorizontalSeparator(defaultSetting.showHorizontalSeparator);
+        setRowBackgroundColor(defaultSetting.rowBackgroundColor);
+        setRowCount(defaultSetting.rowCount);
+        setRowHeight(defaultSetting.rowHeight);
+        setRowTextColor(defaultSetting.rowTextColor);
+        setDiviserColor(defaultSetting.diviserColor);
+        setDiviserSize(defaultSetting.diviserSize);
+        setDiviserHeaderColor(defaultSetting.diviserHeaderColor);
+        setGridStrokeSize(defaultSetting.gridStrokeSize);
+        setGridStrokeColor(defaultSetting.gridStrokeColor);
     }
 
     // start ATTRS
@@ -506,4 +502,5 @@ public class DataGridView extends LinearLayout {
             return new DefaultSetting(c);
         }
     }
-}
+             }
+
