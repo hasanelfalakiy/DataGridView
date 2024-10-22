@@ -18,8 +18,6 @@ import com.google.android.material.elevation.SurfaceColors;
 import java.util.ArrayList;
 
 public class DataGridView extends LinearLayout {
-    private int showPosition = 1;
-    private int showPossibility = 0;
     private DefaultSetting defaultSetting;
     private ArrayList<Row> listRow = new ArrayList<>();
     private ArrayList<View> listVerticalDiviser = new ArrayList<>();
@@ -58,8 +56,6 @@ public class DataGridView extends LinearLayout {
             // int
             defaultSetting.columnCount =
                     a.getInt(R.styleable.DataGridView_columnCount, defaultSetting.columnCount);
-            defaultSetting.rowCount =
-                    a.getInt(R.styleable.DataGridView_rowCount, defaultSetting.rowCount);
 
             // dimen
             defaultSetting.columnHeaderHeight =
@@ -71,10 +67,7 @@ public class DataGridView extends LinearLayout {
                             R.styleable.DataGridView_diviserSize, defaultSetting.diviserSize);
             defaultSetting.rowHeight =
                     a.getDimension(R.styleable.DataGridView_rowHeight, defaultSetting.rowHeight);
-            defaultSetting.gridStrokeSize =
-                    a.getDimension(
-                            R.styleable.DataGridView_gridStrokeSize, defaultSetting.gridStrokeSize);
-
+            
             // color
             defaultSetting.columnHeaderBackgroundColor =
                     a.getColor(
@@ -96,11 +89,7 @@ public class DataGridView extends LinearLayout {
                     a.getColor(
                             R.styleable.DataGridView_diviserHeaderColor,
                             defaultSetting.diviserHeaderColor);
-            defaultSetting.gridStrokeColor =
-                    a.getColor(
-                            R.styleable.DataGridView_gridStrokeColor,
-                            defaultSetting.gridStrokeColor);
-
+            
             // boolean
             defaultSetting.hideHeader =
                     a.getBoolean(R.styleable.DataGridView_hideHeader, defaultSetting.hideHeader);
@@ -126,14 +115,11 @@ public class DataGridView extends LinearLayout {
         showVerticalSeparator(defaultSetting.showVerticalSeparator);
         showHorizontalSeparator(defaultSetting.showHorizontalSeparator);
         setRowBackgroundColor(defaultSetting.rowBackgroundColor);
-        setRowCount(defaultSetting.rowCount);
         setRowHeight(defaultSetting.rowHeight);
         setRowTextColor(defaultSetting.rowTextColor);
         setDiviserColor(defaultSetting.diviserColor);
         setDiviserSize(defaultSetting.diviserSize);
         setDiviserHeaderColor(defaultSetting.diviserHeaderColor);
-        setGridStrokeSize(defaultSetting.gridStrokeSize);
-        setGridStrokeColor(defaultSetting.gridStrokeColor);
     }
 
     // start ATTRS
@@ -193,11 +179,6 @@ public class DataGridView extends LinearLayout {
         for (var tr : listTableRow) tr.setBackgroundColor(rowBackgroundColor);
     }
 
-    public void setRowCount(int rowCount) {
-        defaultSetting.rowCount = rowCount;
-        reloadData();
-    }
-
     public void setRowHeight(float rowHeight) {
         defaultSetting.rowHeight = rowHeight;
         for (var tr : listTableRow) tr.getLayoutParams().height = (int) (rowHeight * 0.9f);
@@ -232,28 +213,7 @@ public class DataGridView extends LinearLayout {
         for (var diviser : listVerticalDiviserHeader) diviser.setBackgroundColor(diviserColor);
     }
 
-    public void setGridStrokeColor(int gridStrokeColor) {
-        defaultSetting.gridStrokeColor = gridStrokeColor;
-        setGridStroke();
-    }
-
-    public void setGridStrokeSize(float gridStrokeSize) {
-        defaultSetting.gridStrokeSize = gridStrokeSize;
-        setGridStroke();
-    }
-
-    private void setGridStroke() {
-        GradientDrawable gradient = new GradientDrawable();
-        gradient.setColor(SurfaceColors.SURFACE_0.getColor(getContext()));
-        gradient.setStroke((int) defaultSetting.gridStrokeSize, defaultSetting.gridStrokeColor);
-        this.setBackground(gradient);
-    }
-
     // end ATTRS
-
-    private void reloadData() {
-        // soon for data row
-    }
 
     public void clearRows() {
         this.listRow.clear();
@@ -276,16 +236,24 @@ public class DataGridView extends LinearLayout {
         // remove row
     }
 
+    int positionPatternVertical = 0;
+
     public void addRow(Row row) {
         TableRow tableRow = new TableRow(getContext());
-        tableRow.setBackgroundColor(defaultSetting.rowBackgroundColor);
         tableRow.setTag("row");
+        if (defaultSetting.usePattern && defaultSetting.listColorRow.size() > 0) {
+            tableRow.setBackgroundColor(defaultSetting.listColorRow.get(positionPatternVertical));
+        } else tableRow.setBackgroundColor(defaultSetting.rowBackgroundColor);
+
+        positionPatternVertical++;
+        if (defaultSetting.usePattern) {
+            if (positionPatternVertical == defaultSetting.listColorRow.size())
+                positionPatternVertical = 0;
+        }
 
         if (row.getCells().size() < defaultSetting.columnCount) {
             int v = defaultSetting.columnCount - row.getCells().size();
-            for (int i = 0; i < v; i++) {
-                row.addCell(row.newCell().setTextContent("(none)"));
-            }
+            for (int i = 0; i < v; i++) row.addCell(row.newCell().setTextContent("(none)"));
         }
 
         if (defaultSetting.showHorizontalSeparator) {
@@ -298,6 +266,7 @@ public class DataGridView extends LinearLayout {
         }
 
         boolean firstExec = false;
+        int positionPattern = 0;
         for (var cell : row.getCells()) {
             if (defaultSetting.showVerticalSeparator) {
                 if (!firstExec) firstExec = true;
@@ -310,10 +279,21 @@ public class DataGridView extends LinearLayout {
                     tableRow.addView(v);
                 }
             }
+            if (defaultSetting.usePattern && defaultSetting.listColorColumn.size() > 0) {
+                cell.getView()
+                        .setBackgroundColor(defaultSetting.listColorColumn.get(positionPattern));
+            }
             cell.getDefaultView().setHeight((int) defaultSetting.rowHeight);
             cell.getDefaultView().setTextSize(12f);
             cell.getDefaultView().setTextColor(defaultSetting.rowTextColor);
             tableRow.addView(cell.getView());
+
+            positionPattern++;
+            if (defaultSetting.usePattern && defaultSetting.listColorColumn.size() > 0) {
+                if (positionPattern == defaultSetting.listColorColumn.size()) {
+                    positionPattern = 0;
+                }
+            }
         }
         tableRow.requestLayout();
         tableLayoutRoot.addView(tableRow);
@@ -327,29 +307,12 @@ public class DataGridView extends LinearLayout {
         return this.listRow;
     }
 
-    public boolean canShowPrevious() {
-        // check
-        return false;
-    }
-
-    public boolean canShowNext() {
-        // check
-        return false;
-    }
-
-    public boolean showPrevious() {
-        return false;
-    }
-
-    public boolean showNext() {
-        return false;
-    }
-
     public Row getRowHeader() {
         return this.rowHeader;
     }
 
     public void setHeader(Row row) {
+        if (defaultSetting.columnCount < 1) defaultSetting.columnCount = row.getCells().size();
         TableRow tableRowHeader = new TableRow(getContext());
         tableRowHeader.setBackgroundColor(defaultSetting.columnHeaderBackgroundColor);
         tableRowHeader.setTag("root");
@@ -367,6 +330,7 @@ public class DataGridView extends LinearLayout {
         }
 
         boolean firstExec = false;
+        int positionPattern = 0;
         for (var cell : row.getCells()) {
             if (defaultSetting.showVerticalSeparator) {
                 if (!firstExec) firstExec = true;
@@ -379,10 +343,22 @@ public class DataGridView extends LinearLayout {
                     tableRowHeader.addView(v);
                 }
             }
+            if (defaultSetting.usePattern && defaultSetting.listColorColumnHeader.size() > 0) {
+                cell.getView()
+                        .setBackgroundColor(
+                                defaultSetting.listColorColumnHeader.get(positionPattern));
+            }
             cell.getDefaultView().setHeight((int) defaultSetting.columnHeaderHeight);
             cell.getDefaultView().setTextSize(14f);
             cell.getDefaultView().setTextColor(defaultSetting.columnHeaderTextColor);
             tableRowHeader.addView(cell.getView());
+
+            positionPattern++;
+            if (defaultSetting.usePattern) {
+                if (positionPattern == defaultSetting.listColorColumnHeader.size()) {
+                    positionPattern = 0;
+                }
+            }
         }
         rowHeader = row;
         tableLayoutRoot.addView(tableRowHeader, 0);
@@ -393,9 +369,6 @@ public class DataGridView extends LinearLayout {
         if (defaultSetting.columnCount < 1) {
             throw new IllegalStateException(
                     "Cannot create a row with zero columns. use \"setColumnCount(int)\" method");
-        } else if (defaultSetting.rowCount < 1) {
-            throw new IllegalStateException(
-                    "it is important to set the number of rows to display in the grid because the value must not be zero. use \"setRowCount(int)\" method");
         } else return Row.newRow(getContext(), defaultSetting.columnCount);
     }
 
@@ -438,24 +411,9 @@ public class DataGridView extends LinearLayout {
         super.setPadding(0, 0, 0, 0);
     }
 
-    private OnEventListener listener;
-
-    public void setOnEventListener(OnEventListener listener) {
-        this.listener = listener;
-    }
-
-    public interface OnEventListener {
-        public default void onRowAdded(Row row) {}
-
-        public default void onRowRemoved(Row row) {}
-
-        public default void onAllRowRemoved() {}
-
-        public default void onShowPerformed() {}
-    }
-
     public static class DefaultSetting {
         private Context C;
+        public boolean usePattern = false;
         public int columnCount;
         public int columnHeaderBackgroundColor;
         public float columnHeaderHeight;
@@ -464,14 +422,14 @@ public class DataGridView extends LinearLayout {
         public boolean showVerticalSeparator;
         public boolean showHorizontalSeparator;
         public int rowBackgroundColor;
-        public int rowCount;
         public float rowHeight;
         public int rowTextColor;
         public int diviserColor;
         public float diviserSize;
         public int diviserHeaderColor;
-        public int gridStrokeColor;
-        public float gridStrokeSize;
+        public ArrayList<Integer> listColorColumnHeader = new ArrayList<>();
+        public ArrayList<Integer> listColorColumn = new ArrayList<>();
+        public ArrayList<Integer> listColorRow = new ArrayList<>();
 
         private DefaultSetting(Context c) {
             C = c;
@@ -487,20 +445,17 @@ public class DataGridView extends LinearLayout {
 
             rowBackgroundColor = C.getColor(R.color.backgroundColorRow);
             rowTextColor = C.getColor(R.color.textColorRow);
-            rowCount = 43;
             rowHeight = C.getResources().getDimension(R.dimen.rowHeight);
 
             diviserColor = C.getColor(R.color.backgroundColorHeader);
             diviserSize = 0;
             diviserHeaderColor = Color.TRANSPARENT;
 
-            gridStrokeColor = columnHeaderBackgroundColor;
-            gridStrokeSize = 4f;
+            usePattern = true;
         }
 
         public static DefaultSetting getInstance(Context c) {
             return new DefaultSetting(c);
         }
     }
-             }
-
+}

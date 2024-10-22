@@ -8,10 +8,6 @@
             format="integer" />
 
         <attr
-            name="rowCount"
-            format="integer" />
-
-        <attr
             name="rowHeight"
             format="dimension" />
 
@@ -21,10 +17,6 @@
         
          <attr
             name="diviserSize"
-            format="dimension" />
-        
-         <attr
-            name="gridStrokeSize"
             format="dimension" />
 
         <attr
@@ -57,10 +49,6 @@
         
         <attr
             name="diviserHeaderColor"
-            format="color" />
-        
-        <attr
-            name="gridStrokeColor"
             format="color" />
 
         <attr
