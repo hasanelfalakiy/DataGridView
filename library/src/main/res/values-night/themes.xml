@@ -1,38 +1,42 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <style
         name="Theme.Application"
-        parent="Theme.Material3.Dark.NoActionBar">
+        parent="Theme.Material3.Dark">
+        <item name="colorPrimary">@color/md_theme_dark_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_dark_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_dark_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_dark_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_dark_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_dark_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_dark_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_dark_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_dark_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_dark_onTertiaryContainer</item>
+        <item name="colorError">@color/md_theme_dark_error</item>
+        <item name="colorErrorContainer">@color/md_theme_dark_errorContainer</item>
+        <item name="colorOnError">@color/md_theme_dark_onError</item>
+        <item name="colorOnErrorContainer">@color/md_theme_dark_onErrorContainer</item>
+        <item name="android:colorBackground">@color/md_theme_dark_background</item>
+        <item name="colorOnBackground">@color/md_theme_dark_onBackground</item>
+        <item name="colorSurface">@color/md_theme_dark_surface</item>
+        <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_dark_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_dark_onSurfaceVariant</item>
+        <item name="colorOutline">@color/md_theme_dark_outline</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
+        <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
 
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowLightNavigationBar">false</item>
-
-        <item name="colorPrimary">@color/colorPrimaryDark</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryVariantDark</item>
-        <item name="colorOnPrimary">@color/colorOnPrimaryDark</item>
-
-        <item name="colorSecondary">@color/colorSecondaryDark</item>
-        <item name="colorSecondaryVariant">@color/colorSecondaryVariantDark</item>
-        <item name="colorOnSecondary">@color/colorOnSecondaryDark</item>
-
-        <item name="colorSurface">@color/colorSurfaceDark</item>
-        <item name="colorSurfaceVariant">@color/colorSurfaceVariantDark</item>
-        <item name="colorOnSurface">@color/colorOnSurfaceDark</item>
-
-        <item name="android:colorBackground">@color/colorBackgroundDark</item>
-        <item name="colorOnBackground">@color/colorOnBackgroundDark</item>
-
-        <item name="colorError">@color/error</item>
-        <item name="android:textColor">@color/colorOnSurfaceDark</item>
-        <item name="colorTertiary">#ff5ac0c7</item>
-
+        <!-- Statusbar color tidak perlu atribut tools:targetApi="O" karena minSdk >= 26 -->
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <!-- Nvigation bar color -->
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
     </style>
 
-    <color name="textColorHeader">@color/colorOnSurfaceDark</color>
-    <color name="backgroundColorHeader">@color/colorOnPrimaryDark</color>
-    <color name="textColorRow">@color/colorOnSurfaceDark</color>
-    <color name="backgroundColorRow">@color/colorSurfaceDark</color>
-
+    <color name="textColorHeader">@color/md_theme_dark_surface</color>
+    <color name="backgroundColorHeader">@color/md_theme_dark_onPrimaryContainer</color>
+    <color name="textColorRow">@color/md_theme_dark_onSurface</color>
+    <color name="backgroundColorRow">@color/md_theme_dark_surface</color>
 </resources>
