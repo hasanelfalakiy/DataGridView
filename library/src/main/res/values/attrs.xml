@@ -18,6 +18,14 @@
         <attr
             name="columnHeaderHeight"
             format="dimension" />
+        
+         <attr
+            name="diviserSize"
+            format="dimension" />
+        
+         <attr
+            name="gridStrokeSize"
+            format="dimension" />
 
         <attr
             name="showVerticalSeparator"
@@ -26,10 +34,6 @@
         <attr
             name="showHorizontalSeparator"
             format="boolean" />
-
-        <attr
-            name="strokeSize"
-            format="dimension" />
 
         <attr
             name="columnHeaderBackgroundColor"
@@ -48,23 +52,20 @@
             format="color" />
 
         <attr
-            name="strokeColor"
+            name="diviserColor"
+            format="color" />
+        
+        <attr
+            name="diviserHeaderColor"
+            format="color" />
+        
+        <attr
+            name="gridStrokeColor"
             format="color" />
 
         <attr
             name="hideHeader"
             format="boolean" />
-
-        <attr
-            name="columnWidthSizeType"
-            format="enum">
-            <enum
-                name="wrap_content"
-                value="0" />
-            <enum
-                name="stretch"
-                value="1" />
-        </attr>
 
     </declare-styleable>
 

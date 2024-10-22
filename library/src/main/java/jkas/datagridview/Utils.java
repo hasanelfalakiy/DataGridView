@@ -4,68 +4,44 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.util.TypedValue;
+import android.widget.TableLayout.LayoutParams;
+import android.widget.TableRow;
 
 public class Utils {
-    public static float getDimenValue(Context C, String unitString) {
-        return Float.parseFloat((parseUnitString2Px(C, unitString)));
+
+    public static float getDimen(Context c, int res) {
+        float val = c.getResources().getDimension(res);
+        return (val * 0.9f);
     }
 
-    public static String parseUnitString2Px(Context C, String unitString) {
-        String[] suffixs = {"sp", "dp", "dip", "pt", "px", "mm", "in"};
-        unitString = unitString.trim();
-        int lastIndex = -1;
-        for (String suffix : suffixs) {
-            if (unitString.endsWith(suffix)) {
-                lastIndex = unitString.length() - suffix.length();
-                try {
-                    float v = Float.parseFloat(unitString.substring(0, lastIndex));
-                    switch (suffix) {
-                        case "sp":
-                            return String.valueOf(
-                                    TypedValue.applyDimension(
-                                            TypedValue.COMPLEX_UNIT_SP,
-                                            v,
-                                            C.getResources().getDisplayMetrics()));
-                        case "dp":
-                        case "dip":
-                            return String.valueOf(
-                                    TypedValue.applyDimension(
-                                            TypedValue.COMPLEX_UNIT_DIP,
-                                            v,
-                                            C.getResources().getDisplayMetrics()));
-                        case "pt":
-                            return String.valueOf(
-                                    TypedValue.applyDimension(
-                                            TypedValue.COMPLEX_UNIT_PT,
-                                            v,
-                                            C.getResources().getDisplayMetrics()));
-                        case "px":
-                            return String.valueOf(v);
-                        case "mm":
-                            return String.valueOf(
-                                    TypedValue.applyDimension(
-                                            TypedValue.COMPLEX_UNIT_MM,
-                                            v,
-                                            C.getResources().getDisplayMetrics()));
-                        case "in":
-                            return String.valueOf(
-                                    TypedValue.applyDimension(
-                                            TypedValue.COMPLEX_UNIT_IN,
-                                            v,
-                                            C.getResources().getDisplayMetrics()));
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
-        }
-        return "-1";
-    }
-    
     public static void copyTextToClipBoard(Context context, String text) {
         ((ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE))
                 .setPrimaryClip(ClipData.newPlainText("clipboard", text));
+    }
+
+    public static TableRow.LayoutParams getParamsTableRow() {
+        final TableRow.LayoutParams params =
+                new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, 200);
+        return params;
+    }
+
+    public static TableRow.LayoutParams getParamsCell() {
+        final TableRow.LayoutParams params =
+                new TableRow.LayoutParams(
+                        TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.MATCH_PARENT);
+        params.weight = 1;
+        return params;
+    }
+
+    public static TableRow.LayoutParams getParamsVerticalDiviser() {
+        final TableRow.LayoutParams params =
+                new TableRow.LayoutParams(4, TableRow.LayoutParams.MATCH_PARENT);
+        return params;
+    }
+
+    public static TableRow.LayoutParams getParamsHorizontalDiviser() {
+        final TableRow.LayoutParams params =
+                new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 4);
+        return params;
     }
 }
