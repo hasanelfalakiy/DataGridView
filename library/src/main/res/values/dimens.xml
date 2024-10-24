@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="textSizeHeader">12sp</dimen>
-    <dimen name="columnHeaderSizeHeight">43dp</dimen>
-    <dimen name="textSizeRow">11sp</dimen>
-    <dimen name="rowHeight">30dp</dimen>
-</resources>
