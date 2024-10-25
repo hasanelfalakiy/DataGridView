@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <declare-styleable name="DataGridView">
-
         <attr
             name="columnCount"
             format="integer" />
@@ -14,8 +12,8 @@
         <attr
             name="columnHeaderHeight"
             format="dimension" />
-        
-         <attr
+
+        <attr
             name="diviserSize"
             format="dimension" />
 
@@ -46,7 +44,7 @@
         <attr
             name="diviserColor"
             format="color" />
-        
+
         <attr
             name="diviserHeaderColor"
             format="color" />
@@ -54,7 +52,5 @@
         <attr
             name="hideHeader"
             format="boolean" />
-
     </declare-styleable>
-
 </resources>
