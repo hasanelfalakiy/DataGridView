@@ -396,13 +396,13 @@ public class DataGridView extends LinearLayout {
         public boolean usePattern = false;
         public int columnCount;
         public int columnHeaderBackgroundColor;
-        public float columnHeaderHeight = -2;
+        public float columnHeaderHeight;
         public int columnHeaderTextColor;
         public boolean hideHeader;
         public boolean showVerticalSeparator = true;
         public boolean showHorizontalSeparator = false;
         public int rowBackgroundColor;
-        public float rowHeight = -2;
+        public float rowHeight;
         public int rowTextColor;
         public int diviserColor;
         public float diviserSize;
