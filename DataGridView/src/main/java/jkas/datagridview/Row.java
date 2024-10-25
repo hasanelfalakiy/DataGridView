@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
 public class Row {
@@ -62,10 +61,16 @@ public class Row {
     }
 
     public static class Cell {
-        private final TextView text;
+        private TextView text;
         private View view;
+        private Context c;
 
         private Cell(Context c) {
+            this.c = c;
+            initTextView();
+        }
+
+        private void initTextView() {
             text = new TextView(c);
             text.setLayoutParams(Utils.getParamsCell());
             this.text.setPadding(43, 8, 43, 8);
@@ -92,12 +97,12 @@ public class Row {
             if (view != null) view.getLayoutParams().height = height;
         }
 
-        public Cell setView(@NonNull View view) {
+        public Cell setView(View view) {
             this.view = view;
             return this;
         }
 
-        public Cell setTextContent(@NonNull String str) {
+        public Cell setTextContent(String str) {
             view = null;
             this.text.setText(str);
             return this;

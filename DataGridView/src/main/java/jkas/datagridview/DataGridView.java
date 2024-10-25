@@ -2,7 +2,6 @@ package jkas.datagridview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +32,7 @@ public class DataGridView extends LinearLayout {
     }
 
     private void initDefault(AttributeSet attrs) {
-        defaultSetting = DefaultSetting.getInstance(getContext());
+        defaultSetting = DefaultSetting.getInstance();
         tableLayoutRoot = new TableLayout(getContext());
         initAttr(attrs);
         setAttrs();
@@ -42,7 +41,6 @@ public class DataGridView extends LinearLayout {
 
     private void initAttr(AttributeSet attrs) {
         if (attrs == null) return;
-
         TypedArray a =
                 getContext()
                         .getTheme()
@@ -62,7 +60,7 @@ public class DataGridView extends LinearLayout {
                             R.styleable.DataGridView_diviserSize, defaultSetting.diviserSize);
             defaultSetting.rowHeight =
                     a.getDimension(R.styleable.DataGridView_rowHeight, defaultSetting.rowHeight);
-            
+
             // color
             defaultSetting.columnHeaderBackgroundColor =
                     a.getColor(
@@ -84,7 +82,7 @@ public class DataGridView extends LinearLayout {
                     a.getColor(
                             R.styleable.DataGridView_diviserHeaderColor,
                             defaultSetting.diviserHeaderColor);
-            
+
             // boolean
             defaultSetting.hideHeader =
                     a.getBoolean(R.styleable.DataGridView_hideHeader, defaultSetting.hideHeader);
@@ -138,7 +136,7 @@ public class DataGridView extends LinearLayout {
 
     public void setColumnHeaderTextColor(int columnHeaderTextColor) {
         defaultSetting.columnHeaderTextColor = columnHeaderTextColor;
-        for (var cell : rowHeader.getCells()) {
+        for (Row.Cell cell : rowHeader.getCells()) {
             if (cell.getView() instanceof TextView) {
                 ((TextView) cell.getView()).setTextColor(columnHeaderTextColor);
             }
@@ -151,38 +149,38 @@ public class DataGridView extends LinearLayout {
 
     public void showVerticalSeparator(boolean showVerticalSeparator) {
         defaultSetting.showVerticalSeparator = showVerticalSeparator;
-        for (var v : listVerticalDiviser) {
+        for (View v : listVerticalDiviser) {
             v.setVisibility(showVerticalSeparator ? View.VISIBLE : View.GONE);
         }
     }
 
     public void showHorizontalSeparator(boolean showHorizontalSeparator) {
         defaultSetting.showHorizontalSeparator = showHorizontalSeparator;
-        for (var v : listVerticalDiviser) {
+        for (View v : listVerticalDiviser) {
             v.setVisibility(showHorizontalSeparator ? View.VISIBLE : View.GONE);
         }
     }
 
     public void showHeaderSeparator(boolean showHorizontalSeparator) {
-        for (var v : listVerticalDiviserHeader) {
+        for (View v : listVerticalDiviserHeader) {
             v.setVisibility(showHorizontalSeparator ? View.VISIBLE : View.GONE);
         }
     }
 
     public void setRowBackgroundColor(int rowBackgroundColor) {
         defaultSetting.rowBackgroundColor = rowBackgroundColor;
-        for (var tr : listTableRow) tr.setBackgroundColor(rowBackgroundColor);
+        for (View tr : listTableRow) tr.setBackgroundColor(rowBackgroundColor);
     }
 
     public void setRowHeight(float rowHeight) {
         defaultSetting.rowHeight = rowHeight;
-        for (var tr : listTableRow) tr.getLayoutParams().height = (int) (rowHeight * 0.9f);
+        for (View tr : listTableRow) tr.getLayoutParams().height = (int) (rowHeight * 0.9f);
     }
 
     public void setRowTextColor(int rowTextColor) {
         defaultSetting.rowTextColor = rowTextColor;
-        for (var row : listRow) {
-            for (var cell : row.getCells()) {
+        for (Row row : listRow) {
+            for (Row.Cell cell : row.getCells()) {
                 if (cell.getView() instanceof TextView) {
                     ((TextView) cell.getView()).setTextColor(rowTextColor);
                 }
@@ -192,20 +190,21 @@ public class DataGridView extends LinearLayout {
 
     public void setDiviserColor(int diviserColor) {
         defaultSetting.diviserColor = diviserColor;
-        for (var diviser : listVerticalDiviser) diviser.setBackgroundColor(diviserColor);
-        for (var diviser : listHorizontalDiviser) diviser.setBackgroundColor(diviserColor);
+        for (View diviser : listVerticalDiviser) diviser.setBackgroundColor(diviserColor);
+        for (View diviser : listHorizontalDiviser) diviser.setBackgroundColor(diviserColor);
     }
 
     public void setDiviserSize(float diviserSize) {
         defaultSetting.diviserSize = diviserSize;
-        for (var diviser : listVerticalDiviser) diviser.getLayoutParams().width = (int) diviserSize;
-        for (var diviser : listHorizontalDiviser)
+        for (View diviser : listVerticalDiviser)
+            diviser.getLayoutParams().width = (int) diviserSize;
+        for (View diviser : listHorizontalDiviser)
             diviser.getLayoutParams().height = (int) diviserSize;
     }
 
     public void setDiviserHeaderColor(int diviserColor) {
         defaultSetting.diviserHeaderColor = diviserColor;
-        for (var diviser : listVerticalDiviserHeader) diviser.setBackgroundColor(diviserColor);
+        for (View diviser : listVerticalDiviserHeader) diviser.setBackgroundColor(diviserColor);
     }
 
     // end ATTRS
@@ -215,20 +214,7 @@ public class DataGridView extends LinearLayout {
         this.listTableRow.clear();
         this.listVerticalDiviser.clear();
         this.listHorizontalDiviser.clear();
-    }
-
-    public boolean deleteRow(int position) {
-        if (position > listRow.size() || position < 0) {
-            throw new IllegalStateException(
-                    "The position must not be a negative value let alone greater than the number of available rows.");
-        }
-        deleteRow(listRow.get(position));
-        return true;
-    }
-
-    public void deleteRow(Row row) {
-        this.listRow.remove(row);
-        // remove row
+        this.tableLayoutRoot.removeAllViews();
     }
 
     int positionPatternVertical = 0;
@@ -236,13 +222,13 @@ public class DataGridView extends LinearLayout {
     public void addRow(Row row) {
         TableRow tableRow = new TableRow(getContext());
         tableRow.setTag("row");
-        if (defaultSetting.usePattern && defaultSetting.listColorRow.size() > 0) {
-            tableRow.setBackgroundColor(defaultSetting.listColorRow.get(positionPatternVertical));
+        if (defaultSetting.usePattern && defaultSetting.getListColorRow().size() > 0) {
+            tableRow.setBackgroundColor(defaultSetting.getListColorRow().get(positionPatternVertical));
         } else tableRow.setBackgroundColor(defaultSetting.rowBackgroundColor);
 
         positionPatternVertical++;
         if (defaultSetting.usePattern) {
-            if (positionPatternVertical == defaultSetting.listColorRow.size())
+            if (positionPatternVertical == defaultSetting.getListColorRow().size())
                 positionPatternVertical = 0;
         }
 
@@ -252,7 +238,7 @@ public class DataGridView extends LinearLayout {
         }
 
         if (defaultSetting.showHorizontalSeparator) {
-            var diviser = new View(getContext());
+            View diviser = new View(getContext());
             diviser.setLayoutParams(Utils.getParamsHorizontalDiviser());
             diviser.getLayoutParams().height = (int) defaultSetting.diviserSize;
             diviser.setBackgroundColor(defaultSetting.diviserColor);
@@ -262,11 +248,11 @@ public class DataGridView extends LinearLayout {
 
         boolean firstExec = false;
         int positionPattern = 0;
-        for (var cell : row.getCells()) {
+        for (Row.Cell cell : row.getCells()) {
             if (defaultSetting.showVerticalSeparator) {
                 if (!firstExec) firstExec = true;
                 else {
-                    var v = new View(getContext());
+                    View v = new View(getContext());
                     v.setLayoutParams(Utils.getParamsVerticalDiviser());
                     v.getLayoutParams().width = (int) defaultSetting.diviserSize;
                     v.setBackgroundColor(defaultSetting.diviserColor);
@@ -274,9 +260,9 @@ public class DataGridView extends LinearLayout {
                     tableRow.addView(v);
                 }
             }
-            if (defaultSetting.usePattern && defaultSetting.listColorColumn.size() > 0) {
+            if (defaultSetting.usePattern && defaultSetting.getListColorColumn().size() > 0) {
                 cell.getView()
-                        .setBackgroundColor(defaultSetting.listColorColumn.get(positionPattern));
+                        .setBackgroundColor(defaultSetting.getListColorColumn().get(positionPattern));
             }
             cell.getDefaultView().setHeight((int) defaultSetting.rowHeight);
             cell.getDefaultView().setTextSize(12f);
@@ -284,8 +270,8 @@ public class DataGridView extends LinearLayout {
             tableRow.addView(cell.getView());
 
             positionPattern++;
-            if (defaultSetting.usePattern && defaultSetting.listColorColumn.size() > 0) {
-                if (positionPattern == defaultSetting.listColorColumn.size()) {
+            if (defaultSetting.usePattern && defaultSetting.getListColorColumn().size() > 0) {
+                if (positionPattern == defaultSetting.getListColorColumn().size()) {
                     positionPattern = 0;
                 }
             }
@@ -326,11 +312,11 @@ public class DataGridView extends LinearLayout {
 
         boolean firstExec = false;
         int positionPattern = 0;
-        for (var cell : row.getCells()) {
+        for (Row.Cell cell : row.getCells()) {
             if (defaultSetting.showVerticalSeparator) {
                 if (!firstExec) firstExec = true;
                 else {
-                    var v = new View(getContext());
+                    View v = new View(getContext());
                     v.setLayoutParams(Utils.getParamsVerticalDiviser());
                     v.getLayoutParams().width = (int) defaultSetting.diviserSize;
                     v.setBackgroundColor(defaultSetting.diviserHeaderColor);
@@ -338,10 +324,10 @@ public class DataGridView extends LinearLayout {
                     tableRowHeader.addView(v);
                 }
             }
-            if (defaultSetting.usePattern && defaultSetting.listColorColumnHeader.size() > 0) {
+            if (defaultSetting.usePattern && defaultSetting.getListColorColumnHeader().size() > 0) {
                 cell.getView()
                         .setBackgroundColor(
-                                defaultSetting.listColorColumnHeader.get(positionPattern));
+                                defaultSetting.getListColorColumnHeader().get(positionPattern));
             }
             cell.getDefaultView().setHeight((int) defaultSetting.columnHeaderHeight);
             cell.getDefaultView().setTextSize(14f);
@@ -350,7 +336,7 @@ public class DataGridView extends LinearLayout {
 
             positionPattern++;
             if (defaultSetting.usePattern) {
-                if (positionPattern == defaultSetting.listColorColumnHeader.size()) {
+                if (positionPattern == defaultSetting.getListColorColumnHeader().size()) {
                     positionPattern = 0;
                 }
             }
@@ -407,50 +393,54 @@ public class DataGridView extends LinearLayout {
     }
 
     public static class DefaultSetting {
-        private Context C;
         public boolean usePattern = false;
         public int columnCount;
         public int columnHeaderBackgroundColor;
-        public float columnHeaderHeight;
+        public float columnHeaderHeight = -2;
         public int columnHeaderTextColor;
         public boolean hideHeader;
-        public boolean showVerticalSeparator;
-        public boolean showHorizontalSeparator;
+        public boolean showVerticalSeparator = true;
+        public boolean showHorizontalSeparator = false;
         public int rowBackgroundColor;
-        public float rowHeight;
+        public float rowHeight = -2;
         public int rowTextColor;
         public int diviserColor;
         public float diviserSize;
         public int diviserHeaderColor;
-        public ArrayList<Integer> listColorColumnHeader = new ArrayList<>();
-        public ArrayList<Integer> listColorColumn = new ArrayList<>();
-        public ArrayList<Integer> listColorRow = new ArrayList<>();
+        private ArrayList<Integer> listColorColumnHeader = new ArrayList<>();
+        private ArrayList<Integer> listColorColumn = new ArrayList<>();
+        private ArrayList<Integer> listColorRow = new ArrayList<>();
 
-        private DefaultSetting(Context c) {
-            C = c;
+        private DefaultSetting() {
             columnCount = 0;
-            columnHeaderBackgroundColor = C.getColor(R.color.backgroundColorHeader);
-            columnHeaderTextColor = C.getColor(R.color.textColorHeader);
-            columnHeaderHeight = C.getResources().getDimension(R.dimen.columnHeaderSizeHeight);
-
-            hideHeader = false;
-
-            showVerticalSeparator = true;
-            showHorizontalSeparator = false;
-
-            rowBackgroundColor = C.getColor(R.color.backgroundColorRow);
-            rowTextColor = C.getColor(R.color.textColorRow);
-            rowHeight = C.getResources().getDimension(R.dimen.rowHeight);
-
-            diviserColor = C.getColor(R.color.backgroundColorHeader);
-            diviserSize = 0;
-            diviserHeaderColor = Color.TRANSPARENT;
-
-            usePattern = true;
         }
 
-        public static DefaultSetting getInstance(Context c) {
-            return new DefaultSetting(c);
+        public static DefaultSetting getInstance() {
+            return new DefaultSetting();
+        }
+
+        public ArrayList<Integer> getListColorColumnHeader() {
+            return this.listColorColumnHeader;
+        }
+
+        public void addColorInListColumnHeader(int color) {
+            this.listColorColumnHeader.add(color);
+        }
+
+        public ArrayList<Integer> getListColorColumn() {
+            return this.listColorColumn;
+        }
+
+        public void addColorInListColumn(int color) {
+            this.listColorColumn.add(color);
+        }
+
+        public ArrayList<Integer> getListColorRow() {
+            return this.listColorRow;
+        }
+
+        public void addColorInListRow(int color) {
+            this.listColorRow.add(color);
         }
     }
 }
