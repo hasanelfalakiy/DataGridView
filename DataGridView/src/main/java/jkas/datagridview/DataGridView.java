@@ -2,6 +2,7 @@ package jkas.datagridview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -223,7 +224,8 @@ public class DataGridView extends LinearLayout {
         TableRow tableRow = new TableRow(getContext());
         tableRow.setTag("row");
         if (defaultSetting.usePattern && defaultSetting.getListColorRow().size() > 0) {
-            tableRow.setBackgroundColor(defaultSetting.getListColorRow().get(positionPatternVertical));
+            tableRow.setBackgroundColor(
+                    defaultSetting.getListColorRow().get(positionPatternVertical));
         } else tableRow.setBackgroundColor(defaultSetting.rowBackgroundColor);
 
         positionPatternVertical++;
@@ -262,7 +264,8 @@ public class DataGridView extends LinearLayout {
             }
             if (defaultSetting.usePattern && defaultSetting.getListColorColumn().size() > 0) {
                 cell.getView()
-                        .setBackgroundColor(defaultSetting.getListColorColumn().get(positionPattern));
+                        .setBackgroundColor(
+                                defaultSetting.getListColorColumn().get(positionPattern));
             }
             cell.getDefaultView().setHeight((int) defaultSetting.rowHeight);
             cell.getDefaultView().setTextSize(12f);
@@ -395,24 +398,27 @@ public class DataGridView extends LinearLayout {
     public static class DefaultSetting {
         public boolean usePattern = false;
         public int columnCount;
-        public int columnHeaderBackgroundColor;
-        public float columnHeaderHeight;
-        public int columnHeaderTextColor;
-        public boolean hideHeader;
+        public int columnHeaderBackgroundColor = Color.WHITE;
+        public float columnHeaderHeight = 143;
+        public int columnHeaderTextColor = Color.BLACK;
+        public boolean hideHeader = false;
         public boolean showVerticalSeparator = true;
         public boolean showHorizontalSeparator = false;
-        public int rowBackgroundColor;
-        public float rowHeight;
-        public int rowTextColor;
-        public int diviserColor;
-        public float diviserSize;
-        public int diviserHeaderColor;
+        public int rowBackgroundColor = Color.GRAY;
+        public float rowHeight = 76;
+        public int rowTextColor = Color.BLACK;
+        public int diviserColor = Color.BLACK;
+        public float diviserSize = 4;
+        public int diviserHeaderColor = Color.BLACK;
         private ArrayList<Integer> listColorColumnHeader = new ArrayList<>();
         private ArrayList<Integer> listColorColumn = new ArrayList<>();
         private ArrayList<Integer> listColorRow = new ArrayList<>();
 
         private DefaultSetting() {
             columnCount = 0;
+            listColorColumnHeader.clear();
+            listColorColumn.clear();
+            listColorRow.clear();
         }
 
         public static DefaultSetting getInstance() {
