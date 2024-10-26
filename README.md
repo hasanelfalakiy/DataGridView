@@ -177,7 +177,7 @@ If you want to use this multiple coloring of columns and/or rows, let the value 
 It is important to know this before loading data into the grid :
 - set `columnCount` before data loading, Otherwise an exception will be thrown.
 - the number of `Cell`s added must be equal to `columnCount` otherwise an exception will be thrown if the number of `Cell`s is greater than the limit `columnCount`.
--if the number of `Cell`s is less than `columnCount`, `Cell`s will be added with default values `(none)` to fill the gaps.
+- if the number of `Cell`s is less than `columnCount`, `Cell`s will be added with default values `(none)` to fill the gaps.
 
 <br><br>
 ## Contact
