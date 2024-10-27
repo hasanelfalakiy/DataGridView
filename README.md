@@ -48,7 +48,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 
 <br><br>
 ## Implementation
-- To add data to the grid, you need to create an object of type Row from the DataGridView.
+- To add data to the grid, you need to create an object of type `Row` from the DataGridView.
 from this new object created (`Row`), you would add new cells that will represent the data of the column. the object `Cell` can only be created from the line (object) `Row` that was created (`rowObject.newCell()`)
 
 java
@@ -167,8 +167,8 @@ If you want to use this multiple coloring of columns and/or rows, let the value 
 | `app:columnHeaderTextColor` | `setColumnHeaderTextColor(int color)`| The header text color |
 | `app:columnHeaderBackgroundColor` | `setColumnHeaderBackgroundColor(int color)`| The header background color|
 | `app:columnHeaderHeight` | `setColumnHeaderHeight(float dimen)`| the height size of the header |
-| `app:showVerticalSeparator` | `showVerticalSeparator(boolean true)`| Show vertical divider  |
-| `app:showHorizontalSeparator` | `showHorizontalSeparator(boolean false)`| Show horizontal divider |
+| `app:showVerticalSeparator` | `showVerticalSeparator(boolean show)`| Show vertical divider  |
+| `app:showHorizontalSeparator` | `showHorizontalSeparator(boolean show)`| Show horizontal divider |
 | `app:rowHeight` | `setRowHeight(float dimen)`| the height size of the row |
 | `app:rowTextColor` | `setRowTextColor(int color)`| The row text color |
 | `app:rowBackgroundColor` | `setRowBackgroundColor(int color)`| The row background color |
