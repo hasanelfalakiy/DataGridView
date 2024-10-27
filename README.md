@@ -1,6 +1,7 @@
 <p align ="center"><img width='149px%' height='149px' src='images/ic_grid.png'></p>
+<h1 align ="center">DataGridVlew</h1>
 
-## Screenshots
+### Screenshots
 
  - basic style without color pattern
 <p align ="center"><img src="images/grid1.jpg" alt="GeneralAppearance" width="76%" align="bottom" /></p>
