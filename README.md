@@ -1,6 +1,10 @@
 <p align ="center"><img width='149px%' height='149px' src='images/ic_grid.png'></p>
 <h1 align ="center">DataGridVlew</h1>
 
+> [!WARNING]
+> 
+> THIS PROJECT IS NOT MAINTAINED ANYMORE.
+
 ### Screenshots
 
  - basic style without color pattern
