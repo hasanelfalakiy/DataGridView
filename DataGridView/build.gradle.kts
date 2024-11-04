@@ -11,12 +11,11 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 34
-        
-        buildTypes {
-            release {
-                isMinifyEnabled = false
-                proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            }
+    }
+    
+    buildTypes {
+        release {
+            isMinifyEnabled = false
         }
     }
 }
