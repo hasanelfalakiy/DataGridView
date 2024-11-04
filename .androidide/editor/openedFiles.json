@@ -19,14 +19,14 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/DataGridView/build.gradle.kts",
       "selection": {
         "end": {
-          "column": 19,
-          "index": 186,
-          "line": 9
+          "column": 31,
+          "index": 218,
+          "line": 10
         },
         "start": {
-          "column": 19,
-          "index": 186,
-          "line": 9
+          "column": 31,
+          "index": 218,
+          "line": 10
         }
       }
     },
@@ -76,5 +76,5 @@
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/DataGridView/jitpack.yml"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/DataGridView/DataGridView/build.gradle.kts"
 }
