@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:background="#333333"
+            android:padding="8dp"
+            android:layout_margin="8dp"
+            android:textSize="12dp"
+            android:text="!!! TEST !!!" />
+
+        <HorizontalScrollView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+
+            <jkas.datagridview.DataGridView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:strokeColor="?colorOnSurface"
+                app:diviserColor="@color/backgroundColorHeader"
+                app:columnHeaderBackgroundColor="@color/backgroundColorHeader"
+                app:rowHeight="30dp"
+                app:columnHeaderHeight="43dp"
+                app:showVerticalSeparator="true"
+                app:showHorizontalSeparator="false"
+                app:rowTextColor="@color/textColorRow"
+                app:columnCount="5"
+                app:diviserHeaderColor="@android:color/transparent"
+                app:columnHeaderTextColor="@color/textColorHeader"
+                app:rowBackgroundColor="@color/backgroundColorRow"
+                android:layout_margin="8dp"
+                app:diviserSize="2dp"
+                android:id="@+id/dataGridView" />
+
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <jkas.datagridview.DataGridView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:strokeColor="?colorOnSurface"
+                app:diviserColor="@color/backgroundColorHeader"
+                app:columnHeaderBackgroundColor="@color/backgroundColorHeader"
+                app:rowHeight="30dp"
+                app:columnHeaderHeight="43dp"
+                app:showVerticalSeparator="false"
+                app:showHorizontalSeparator="true"
+                app:rowTextColor="@color/textColorRow"
+                app:columnCount="5"
+                app:diviserHeaderColor="@android:color/transparent"
+                app:columnHeaderTextColor="@color/textColorHeader"
+                app:rowBackgroundColor="@color/backgroundColorRow"
+                android:layout_margin="8dp"
+                app:diviserSize="2dp"
+                android:id="@+id/dataGridView2" />
+
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <jkas.datagridview.DataGridView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:strokeColor="?colorOnSurface"
+                app:diviserColor="@color/backgroundColorHeader"
+                app:columnHeaderBackgroundColor="@color/backgroundColorHeader"
+                app:rowHeight="30dp"
+                app:columnHeaderHeight="43dp"
+                app:showVerticalSeparator="true"
+                app:showHorizontalSeparator="true"
+                app:rowTextColor="@color/textColorRow"
+                app:columnCount="5"
+                app:diviserHeaderColor="@android:color/transparent"
+                app:columnHeaderTextColor="@color/textColorHeader"
+                app:rowBackgroundColor="@color/backgroundColorRow"
+                android:layout_margin="8dp"
+                app:diviserSize="2dp"
+                android:id="@+id/dataGridView3" />
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</ScrollView>

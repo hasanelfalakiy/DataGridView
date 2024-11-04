@@ -1,0 +1,9 @@
+R_DEF: Internal format may change without notice
+local
+id dataGridView
+id dataGridView2
+id dataGridView3
+layout activity_main
+string app_name
+style Base.AppTheme
+style Theme.Application

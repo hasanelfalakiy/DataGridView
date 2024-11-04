@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DataGridView Sample</string>
+    <style name="Base.AppTheme" parent="Theme.Material3.DayNight">
+  </style>
+    <style name="Theme.Application" parent="Base.AppTheme"/>
+</resources>
