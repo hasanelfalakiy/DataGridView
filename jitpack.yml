@@ -3,3 +3,6 @@ jdk:
 
 before_install:
   - ./scripts/prepareJitpackEnvironment.sh
+  
+install:
+  - ./gradlew clean build publishToMavenLocal  

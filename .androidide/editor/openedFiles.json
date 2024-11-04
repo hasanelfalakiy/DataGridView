@@ -59,7 +59,22 @@
           "line": 2
         }
       }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/jitpack.yml",
+      "selection": {
+        "end": {
+          "column": 2,
+          "index": 81,
+          "line": 5
+        },
+        "start": {
+          "column": 2,
+          "index": 81,
+          "line": 5
+        }
+      }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/DataGridView/DataGridView/build.gradle.kts"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/DataGridView/jitpack.yml"
 }
