@@ -2,5 +2,5 @@ jdk:
   - openjdk17
 
 install:
-  - ./chmod +x gradlew
+  - chmod +x gradlew
   - ./gradlew clean build publishToMavenLocal  
