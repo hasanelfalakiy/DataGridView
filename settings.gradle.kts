@@ -3,18 +3,18 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+        maven { url = uri("https://jitpack.io") }
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-    google()
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
-  }
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
 }
 
 rootProject.name = "DataGridViewSample"
-include ':app'
-include ':DataGridView'
+include(":app", ":DataGridView")
