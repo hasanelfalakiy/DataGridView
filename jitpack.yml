@@ -1,6 +1,18 @@
 jdk:
   - openjdk17
 
+env:
+  ANDROID_BUILD_TOOLS_VERSION: 34.0.2
+  
 install:
   - chmod +x gradlew
-  - ./gradlew clean build publishToMavenLocal  
+  - ./gradlew clean build
+
+before_cache:
+  # Tambahkan build tools di konfigurasi Gradle untuk memastikan versi yang benar diunduh
+  - echo "sdk.dir=$ANDROID_HOME" > local.properties
+  - echo "buildToolsVersion=$ANDROID_BUILD_TOOLS_VERSION" >> local.properties
+
+build:
+  # Jalankan command build beserta publish jika perlu
+  - ./gradlew assemble publishToMavenLocal

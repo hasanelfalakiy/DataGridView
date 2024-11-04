@@ -8,10 +8,14 @@ plugins {
 android {
     namespace = "jkas.datagridview"
     compileSdk = 34
-    buildToolsVersion = "34.0.4"
+    buildToolsVersion = "34.0.2"
     
     defaultConfig {
         minSdk = 21
+        targetSdk = 34
+    }
+    
+    lint {
         targetSdk = 34
     }
     

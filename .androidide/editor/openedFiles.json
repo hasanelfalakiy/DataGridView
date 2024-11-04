@@ -1,17 +1,17 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/app/src/main/java/jkas/datagridviewsample/MainActivity.java",
+      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/jitpack.yml",
       "selection": {
         "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
+          "column": 25,
+          "index": 121,
+          "line": 8
         },
         "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
+          "column": 25,
+          "index": 121,
+          "line": 8
         }
       }
     },
@@ -19,59 +19,14 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/DataGridView/build.gradle.kts",
       "selection": {
         "end": {
-          "column": 31,
-          "index": 218,
-          "line": 10
+          "column": 22,
+          "index": 332,
+          "line": 18
         },
         "start": {
-          "column": 31,
-          "index": 218,
-          "line": 10
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/gradle/libs.versions.toml",
-      "selection": {
-        "end": {
-          "column": 17,
-          "index": 42,
-          "line": 2
-        },
-        "start": {
-          "column": 17,
-          "index": 42,
-          "line": 2
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/build.gradle.kts",
-      "selection": {
-        "end": {
-          "column": 51,
-          "index": 117,
-          "line": 2
-        },
-        "start": {
-          "column": 51,
-          "index": 117,
-          "line": 2
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/jitpack.yml",
-      "selection": {
-        "end": {
-          "column": 4,
-          "index": 33,
-          "line": 4
-        },
-        "start": {
-          "column": 4,
-          "index": 33,
-          "line": 4
+          "column": 22,
+          "index": 332,
+          "line": 18
         }
       }
     }
