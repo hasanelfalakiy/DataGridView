@@ -1,0 +1,65 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/app/src/main/java/jkas/datagridviewsample/MainActivity.java",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/DataGridView/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 4,
+          "index": 54,
+          "line": 2
+        },
+        "start": {
+          "column": 4,
+          "index": 54,
+          "line": 2
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/gradle/libs.versions.toml",
+      "selection": {
+        "end": {
+          "column": 17,
+          "index": 42,
+          "line": 2
+        },
+        "start": {
+          "column": 17,
+          "index": 42,
+          "line": 2
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/DataGridView/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 51,
+          "index": 117,
+          "line": 2
+        },
+        "start": {
+          "column": 51,
+          "index": 117,
+          "line": 2
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/DataGridView/DataGridView/build.gradle.kts"
+}
