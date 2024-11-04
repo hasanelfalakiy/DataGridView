@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "jkas.datagridviewsample.app-mergeDebugResources-30:/values-gl/values-gl.xml",
+            "outputFile": "jkas.datagridviewsample.app-mergeDebugResources-31:/values-gl/values-gl.xml",
             "map": [
                 {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/8.9/transforms/c58ab490bd4cf01cad5cadaaaca0a550/transformed/material-1.12.0/res/values-gl/values-gl.xml",
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/8.9/transforms/06cd7e07eb7f67fe180ae9fd996fef12/transformed/material-1.12.0/res/values-gl/values-gl.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/8.9/transforms/8233121a1ef04dfc086bfb2114074c5b/transformed/appcompat-1.6.1/res/values-gl/values-gl.xml",
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/8.9/transforms/05b97528b20f779dc7a908c743ad70ae/transformed/appcompat-1.7.0/res/values-gl/values-gl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -40,7 +40,7 @@
                     }
                 },
                 {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/8.9/transforms/c086a52169167d145d52cbf1e44f8d29/transformed/core-1.13.0/res/values-gl/values-gl.xml",
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/8.9/transforms/9d7afaa063ad3f922db4ea8820964020/transformed/core-1.13.0/res/values-gl/values-gl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

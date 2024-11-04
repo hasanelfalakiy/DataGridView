@@ -1,10 +1,6 @@
 [
     {
-        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.9/jkas.datagridviewsample.app-mergeDebugResources-31:/layout/activity_main.xml",
-        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.9/jkas.datagridviewsample.app-main-34:/layout/activity_main.xml"
-    },
-    {
-        "merged": "jkas.datagridviewsample.app-mergeDebugResources-31:/layout/activity_main.xml",
-        "source": "jkas.datagridviewsample.app-main-34:/layout/activity_main.xml"
+        "merged": "jkas.datagridviewsample.app-mergeDebugResources-32:/layout/activity_main.xml",
+        "source": "jkas.datagridviewsample.app-main-35:/layout/activity_main.xml"
     }
 ]
