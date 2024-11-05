@@ -1,9 +1,6 @@
 <p align ="center"><img width='149px%' height='149px' src='images/ic_grid.png'></p>
 <h1 align ="center">DataGridView</h1>
 
-> [!WARNING]
-> 
-> THIS PROJECT IS NOT MAINTAINED ANYMORE.
 
 ### Screenshots
 
